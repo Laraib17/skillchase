@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificates Post Completion</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .content-left {
+      flex: 1;
+      max-width: 50%;
+      padding-right: 20px;
+      box-sizing: border-box;
+    }
+    .content-left h2 {
+      font-size: 28px;
+      color: #333333;
+    }
+    .content-left p {
+      font-size: 16px;
+      color: #666666;
+      margin: 15px 0;
+    }
+    .content-left ul {
+      padding-left: 20px;
+    }
+    .content-left li {
+      margin-bottom: 10px;
+    }
+
+    /* Image Carousel */
+    .content-right {
+      flex: 1;
+      max-width: 50%;
+      box-sizing: border-box;
+    }
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .carousel-wrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .carousel-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: #ccc;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    .carousel-dot.active {
+      background-color: #6b4eff;
+    }
+
+    /* Navigation Arrows */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .carousel-arrow.left {
+      left: 10px;
+    }
+    .carousel-arrow.right {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Left Text Content -->
+    <div class="content-left">
+      <h2>Certificates you will receive post completion of Web Development Course</h2>
+      <ul>
+        <li>We acknowledge your hard work and dedication towards the program by bestowing a course completion certificate from YHills.</li>
+        <li>We also provide internship certificates from YHills and top-hole universities after successful completion of the internship.</li>
+        <li>We purvey an Industry certificate from renowned and prestigious companies as an incentive.</li>
+      </ul>
+    </div>
+
+    <!-- Right Image Carousel -->
+    <div class="content-right">
+      <div class="carousel">
+        <div class="carousel-wrapper">
+          <img src="https://via.placeholder.com/500x300?text=Certificate+1" alt="Certificate 1">
+          <img src="https://via.placeholder.com/500x300?text=Certificate+2" alt="Certificate 2">
+          <img src="https://via.placeholder.com/500x300?text=Certificate+3" alt="Certificate 3">
+        </div>
+        <div class="carousel-arrow left" onclick="prevSlide()">&#10094;</div>
+        <div class="carousel-arrow right" onclick="nextSlide()">&#10095;</div>
+      </div>
+      <div class="carousel-dots">
+        <span class="carousel-dot active" onclick="moveToSlide(0)"></span>
+        <span class="carousel-dot" onclick="moveToSlide(1)"></span>
+        <span class="carousel-dot" onclick="moveToSlide(2)"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+
+    function updateCarousel() {
+      const carouselWrapper = document.querySelector('.carousel-wrapper');
+      const dots = document.querySelectorAll('.carousel-dot');
+      carouselWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[currentSlide].classList.add('active');
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide > 0) ? currentSlide - 1 : 2;
+      updateCarousel();
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide < 2) ? currentSlide + 1 : 0;
+      updateCarousel();
+    }
+
+    function moveToSlide(slideIndex) {
+      currentSlide = slideIndex;
+      updateCarousel();
+    }
+  </script>
+
+</body>
+</html>
